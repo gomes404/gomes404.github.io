@@ -373,47 +373,41 @@ footer {
 /* Skills section */
 .skills {
     background: linear-gradient(135deg, rgba(16, 40, 74, 0.5) 0%, rgba(10, 25, 47, 0.5) 100%);
+    padding: 50px 0;
+    overflow: hidden;
 }
 
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 30px;
-    justify-items: center;
+.skills-reel-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.skills-reel {
+    display: flex;
+    animation: scroll 30s linear infinite;
 }
 
 .skill-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.skill-item:hover {
-    transform: translateY(-5px);
+    flex: 0 0 auto;
+    margin: 0 20px;
 }
 
 .skill-icon {
     width: 60px;
     height: 60px;
-    margin-bottom: 10px;
+    object-fit: contain;
 }
 
-.skill-name {
-    font-size: 0.9em;
-    color: #8892b0;
-}
-
-/* Responsive design for skills section */
-@media (max-width: 768px) {
-    .skills-grid {
-        grid-template-columns: repeat(3, 1fr);
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
     }
 }
 
-@media (max-width: 480px) {
-    .skills-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+/* Pause animation on hover */
+.skills-reel-container:hover .skills-reel {
+    animation-play-state: paused;
 }
