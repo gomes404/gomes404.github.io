@@ -36,7 +36,7 @@ class PDF(FPDF):
         self.set_font("Arial", "", 11)
         self.set_text_color(0, 0, 0)  # Black text
         self.multi_cell(0, 5, body)
-        self.ln(5)
+        self.ln(3)  # Reduce space after section body from 5 to 3
 
 def generate_cv():
     pdf = PDF()
@@ -57,7 +57,7 @@ def generate_cv():
     # Professional Summary
     pdf.section_title("Professional Summary")
     summary = (
-        "Motivated and skilled Software Developer with hands-on experience in web development and game design "
+        "Motivated and skilled Software Developer with hands-on experience in web development and game design. "
         "Proficient in HTML, CSS, JavaScript, and Unreal Engine, with a growing understanding of C++ and C#. "
         "Strong ability to design and develop user-centric solutions, demonstrated through web-based projects and game development. "
         "Adept in version control using Git/GitHub and a solid understanding of responsive design and UI/UX principles. "
@@ -68,9 +68,9 @@ def generate_cv():
     # Technical Skills
     pdf.section_title("Technical Skills")
     skills = (
-        "- Programming Languages: JavaScript, C++, C#, Ruby\n"
-        "- Web Development: HTML, CSS, Angular.js, Responsive Web Design\n"
-        "- Game Development: Unreal Engine, Unity\n"
+        "- Programming Languages: JavaScript (Intermediate), C++ (Working Knowledge), C# (Working Knowledge),  Ruby (Working Knowledge)\n"
+        "- Web Development: HTML (Advanced), CSS (Advanced), Angular.js (Beginner), Responsive Web Design\n"
+        "- Game Development: Unreal Engine (Experienced), Unity (Basic)\n"
         "- Version Control: Git, GitHub\n"
         "- Tools: Visual Studio, Unity, Trello, JIRA\n"
         "- Methodologies: Agile, Scrum"
@@ -89,26 +89,23 @@ def generate_cv():
     # Work Experience
     pdf.section_title("Work Experience")
     work_experience = (
-        "Ramp Agent, DHL, Bristol\n"
-        "March 2023 - Present\n"
-        "- Collaborated with teams to ensure safety and efficiency, developing solutions to optimize workflows.\n\n"
-
-        "On-Site Manager, FastUK Parcel (Self-Employed), Bristol\n"
-        "April 2022 - February 2023\n"
-        "- Analyzed performance data to enhance operational efficiency - similar skills used in debugging and optimizing software."
+        "Ramp Agent, DHL, Bristol (March 2023 - Present)\n"
+        "- Ensured efficient operational processes and developed workflow solutions.\n"
+        "- Applied teamwork and problem-solving skills to software development tasks.\n\n"
+        "On-Site Manager, FastUK Parcel (Self-Employed), Bristol (April 2022 - February 2023)\n"
+        "- Analyzed performance data to optimize operations.\n"
+        "- Applied problem-solving skills in software debugging and testing."
     )
     pdf.section_body(work_experience)
 
-    # Add a page break here
     pdf.add_page()
-
     # Relevant Projects
     pdf.section_title("Relevant Projects")
     projects = (
         "- Portfolio Project 1: Web-Based Portfolio\n"
         "  - Technologies: HTML, CSS, JavaScript\n"
         "  - Designed and developed a fully responsive personal portfolio website. Demonstrated web development skills, including a blog section, and portfolio projects.\n"
-        "  - Implemented responsive design for optimal viewing across devices.\n"
+        "  - Implemented responsive design for optimal viewing across devices.\n\n"
         
         "- Portfolio Project 2: Singleplayer Game Development\n"
         "  - Technologies: Unreal Engine\n"
